@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 // Public Website Routes (17 Homepage Sections & Pages)
 Route::controller(PublicController::class)->group(function () {
-    Route::get('/', 'home')->name('public.home');
+    Route::match(['get', 'head'], '/', 'home')->name('public.home');
     Route::post('/set-currency', 'setCurrency')->name('public.currency.set');
     Route::get('/about', 'about')->name('public.about');
     Route::get('/plans', 'plans')->name('public.plans');
